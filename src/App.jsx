@@ -23,7 +23,7 @@ const Civil = lazy(() => import("./pages/services/Civil"));
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL || ""}>
       <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950">
         
         <Navbar />
