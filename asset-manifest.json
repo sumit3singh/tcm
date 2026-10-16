@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b56559c4.css",
+    "main.js": "/static/js/main.599d98a9.js",
+    "static/js/869.4b403539.chunk.js": "/static/js/869.4b403539.chunk.js",
+    "static/js/706.a97b6db7.chunk.js": "/static/js/706.a97b6db7.chunk.js",
+    "static/js/404.a98cc9b0.chunk.js": "/static/js/404.a98cc9b0.chunk.js",
+    "static/js/246.c39fe38b.chunk.js": "/static/js/246.c39fe38b.chunk.js",
+    "static/js/730.7b09b89e.chunk.js": "/static/js/730.7b09b89e.chunk.js",
+    "static/js/336.6c3724a1.chunk.js": "/static/js/336.6c3724a1.chunk.js",
+    "static/js/426.a8304cfb.chunk.js": "/static/js/426.a8304cfb.chunk.js",
+    "static/js/284.6ad99d02.chunk.js": "/static/js/284.6ad99d02.chunk.js",
+    "static/js/282.eb911802.chunk.js": "/static/js/282.eb911802.chunk.js",
+    "static/js/693.2b0447fa.chunk.js": "/static/js/693.2b0447fa.chunk.js",
+    "static/js/112.f3a9e597.chunk.js": "/static/js/112.f3a9e597.chunk.js",
+    "static/js/829.e277fdc8.chunk.js": "/static/js/829.e277fdc8.chunk.js",
+    "static/media/tcmlogo.png": "/static/media/tcmlogo.9c42820f359b0b5348ed.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.b56559c4.css",
+    "static/js/main.599d98a9.js"
+  ]
+}
