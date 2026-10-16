@@ -1,138 +1,117 @@
-// src/pages/services/Commercial.jsx → ULTRA RESPONSIVE + SAME FUNCTIONALITY
+// src/pages/services/Commercial.jsx → ENTERPRISE COMMERCIAL CONSTRUCTION
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Building2, Award, Clock, Users, ArrowRight } from "lucide-react";
+import { Building2, Award, Clock, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import ServiceSwitcher from "../../components/ServiceSwitcher"; // ← CORRECT IMPORT
+import ServiceSwitcher from "../../components/ServiceSwitcher";
 
 export default function Commercial() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
-
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
       {/* Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-16 left-4 w-56 h-56 xs:w-72 xs:h-72 md:w-96 md:h-96 bg-[#F9A826]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-24 right-4 w-48 h-48 xs:w-64 xs:h-64 md:w-80 md:h-80 bg-[#2C74B3]/10 rounded-full blur-3xl" />
+        <div className="absolute top-12 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 px-4 pb-20 pt-28 xs:px-5 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-
-          {/* Hero Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-14 xs:mb-16 sm:mb-20"
-          >
-            <h1 className="text-4xl font-black tracking-tight xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F9A826] to-[#FF7A2D]">
-                COMMERCIAL
-              </span>
-              <br />
-              <span className="text-3xl text-gray-800 xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                CONSTRUCTION
-              </span>
-            </h1>
-
-            <p className="max-w-4xl px-2 mx-auto mt-6 text-sm font-light leading-relaxed text-gray-600 sm:mt-8 xs:text-base sm:text-lg md:text-xl">
-              World-class office towers, retail destinations, and corporate campuses
-              built for success, sustainability, and timeless appeal.
-            </p>
-          </motion.div>
-
-          {/* Stats Section */}
-          <div className="grid grid-cols-2 gap-6 px-1 mb-16 xs:gap-8 sm:gap-10 md:grid-cols-4 sm:mb-20">
-            {[ 
-              {icon: Building2, val: "150+", label: "Commercial Projects"},
-              {icon: Award,     val: "42",   label: "Awards Won"},
-              {icon: Clock,     val: "98%",  label: "On-Time Delivery"},
-              {icon: Users,     val: "50M+", label: "Sq Ft Built"},
-            ].map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="p-5 text-center bg-white border border-gray-200 shadow-xl xs:p-6 sm:p-8 rounded-3xl"
-              >
-                <s.icon className="mx-auto mb-3 xs:mb-4 text-[#F9A826] w-10 h-10 xs:w-12 xs:h-12" />
-                <div className="text-2xl font-black text-gray-800 xs:text-3xl sm:text-4xl">
-                  {s.val}
-                </div>
-                <div className="mt-1 text-sm text-gray-600 xs:mt-2 xs:text-base">
-                  {s.label}
-                </div>
-              </motion.div>
-            ))}
+      <div className="relative z-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Hero Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-bold uppercase tracking-wider">
+            <span>Specialized Capability</span>
           </div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Commercial <span className="text-amber-500">Construction</span>
+          </h1>
+          <p className="max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+            World-class corporate towers, shopping complexes, and mixed-use commercial campuses engineered for occupant efficiency and long-term asset value.
+          </p>
+        </motion.div>
 
-          {/* Features Section */}
-          <div className="grid gap-10 mb-16 sm:gap-12 lg:grid-cols-2 sm:mb-20">
-            {/* Left Text */}
-            <div className="px-2 space-y-6 xs:space-y-8 sm:px-0">
-              <h2 className="text-2xl font-bold text-gray-800 xs:text-3xl sm:text-4xl ">
-                Why Choose TCM for Commercial?
-              </h2>
-
-              <ul className="space-y-5 sm:space-y-6">
-                {[
-                  "LEED & IGBC Certified Designs",
-                  "Smart Building Integration",
-                  "Seismic-Resistant Structures",
-                  "Fast-Track Construction Methodology",
-                  "Zero Defect Handover",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-4">
-                    <div className="
-                      w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 
-                      rounded-full 
-                      bg-gradient-to-br from-[#F9A826] to-[#FF7A2D]
-                      flex-shrink-0
-                    " />
-                    <span className="text-base text-gray-700 xs:text-lg">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Placeholder Image Box (responsive) */}
-            <div className="h-64 bg-gray-200 border-2 border-dashed rounded-3xl xs:h-72 sm:h-80 md:h-96" />
-          </div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-center"
-          >
-            <h2 className="mb-6 text-2xl font-bold text-gray-800 sm:mb-8 xs:text-3xl sm:text-4xl md:text-5xl">
-              Ready to Build Your{" "}
-              <span className="text-[#F9A826]">Corporate Landmark</span>?
-            </h2>
-
-            <Link
-              to="/contact"
-              className="
-                inline-flex items-center gap-3 sm:gap-4
-                px-8 py-4 xs:px-10 xs:py-5 sm:px-12 sm:py-6
-                bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] 
-                text-black font-bold rounded-full shadow-2xl
-                text-base xs:text-lg sm:text-xl
-                transition-all hover:scale-105
-              "
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4 mb-16">
+          {[ 
+            { icon: Building2, val: "150+", label: "Commercial Towers" },
+            { icon: Award,     val: "42",   label: "Industry Awards" },
+            { icon: Clock,     val: "98%",  label: "On-Time Completion" },
+            { icon: Users,     val: "50M+", label: "Sq Ft Developed" },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="p-5 text-center bg-white border border-slate-200/80 shadow-xs rounded-xl"
             >
-              Start Your Project
-              <ArrowRight className="w-6 h-6 xs:w-7 xs:h-7" />
-            </Link>
-          </motion.div>
-            {/* Service Switcher - Auto detects current page */}
-                    <ServiceSwitcher />
-
+              <s.icon className="mx-auto mb-2 text-amber-500 w-6 h-6" />
+              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">{s.val}</div>
+              <div className="mt-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">{s.label}</div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Key Features & Showcase */}
+        <div className="grid gap-8 mb-16 lg:grid-cols-2 items-center">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              Technical Specifications & Commercial Highlights
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              We leverage advanced BIM coordinate systems, post-tensioned concrete technology, and energy-efficient building envelopes.
+            </p>
+            <ul className="space-y-3 pt-2">
+              {[
+                "LEED & IGBC Gold/Platinum Certified Green Building Construction",
+                "Advanced HVAC, Automated Fire Suppression & BMS Integration",
+                "High-Speed Passenger & Freight Elevator Core Engineering",
+                "Seismic Zone IV/V Compliant Structural Frameworks",
+                "Stringent On-Site HSE (Health, Safety, Environment) Protocols",
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-md h-64 sm:h-80 bg-slate-100">
+            <img
+              src="https://images.unsplash.com/photo-1486401897504-2b8123ec0d8e?w=1000&q=80&fit=crop"
+              alt="Commercial Architecture"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="p-8 sm:p-10 text-center bg-gradient-to-br from-[#0A2647] via-[#0D315C] to-[#144272] rounded-2xl shadow-xl border border-[#2C74B3]/30 mb-16">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2">
+            Planning a Commercial Venture?
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-200 max-w-md mx-auto mb-6">
+            Get an in-depth structural feasibility report and BOQ projection for your commercial site.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] hover:from-[#ffb339] hover:to-[#ff8a3d] text-slate-950 shadow-md transition-all font-bold"
+          >
+            <span>Discuss Commercial Project</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Other Services Switcher */}
+        <ServiceSwitcher />
+
       </div>
     </section>
   );

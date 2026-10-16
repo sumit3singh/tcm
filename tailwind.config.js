@@ -3,8 +3,16 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     
     theme: {
+        screens: {
+            'xs': '420px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+        },
         fontFamily: {
-            sans: ["Inter", "DM Sans", "ui-sans-serif", "system-ui"],
+            sans: ["'Plus Jakarta Sans'", "Inter", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
         },
         extend: {
             colors: {

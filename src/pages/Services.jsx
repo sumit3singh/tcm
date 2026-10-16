@@ -1,4 +1,4 @@
-// src/pages/Services.jsx → FULLY RESPONSIVE + CLICKABLE CARDS + NO ERRORS
+// src/pages/Services.jsx → ENTERPRISE SERVICES OVERVIEW PAGE
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -10,152 +10,158 @@ import {
   Hammer, 
   FileText, 
   HardHat,
-  ArrowRight 
+  ArrowRight,
+  CheckCircle2
 } from "lucide-react";
 
 const services = [
   {
     icon: Building2,
     title: "Commercial Construction",
-    desc: "Premium office towers, retail complexes, and corporate campuses designed for productivity, aesthetics, and long-term value.",
-    color: "from-[#F9A826] to-[#FF7A2D]",
+    desc: "Grade-A corporate headquarters, commercial business hubs, and retail spaces engineered for operational efficiency and sustainability.",
+    accent: "from-amber-500 to-amber-600",
+    badge: "Corporate & Retail",
     link: "/services/commercial"
   },
   {
     icon: Home,
-    title: "Residential Projects",
-    desc: "Luxury villas, high-rise apartments, and gated communities built with comfort, elegance, and family-first design.",
-    color: "from-[#2C74B3] to-[#144272]",
+    title: "Residential Developments",
+    desc: "Architecturally distinctive residences, high-rise luxury towers, and gated communities delivering premium lifestyle living.",
+    accent: "from-blue-600 to-blue-700",
+    badge: "Villas & High-Rise",
     link: "/services/residential"
   },
   {
     icon: Factory,
     title: "Industrial Infrastructure",
-    desc: "State-of-the-art warehouses, manufacturing plants, and logistics hubs engineered for efficiency and scalability.",
-    color: "from-[#0A2647] to-[#1e4b80]",
+    desc: "Heavy engineering plants, automated warehousing, and distribution centers built for heavy load capacity and logistical speed.",
+    accent: "from-slate-800 to-slate-950",
+    badge: "Warehousing & Plants",
     link: "/services/industrial"
   },
   {
     icon: Hammer,
-    title: "Renovation & Remodeling",
-    desc: "Transforming old structures into modern masterpieces — from heritage restorations to complete interior makeovers.",
-    color: "from-[#F9A826] to-[#FFB84D]",
+    title: "Renovation & Adaptive Reuse",
+    desc: "Modern structural reinforcement, exterior facade overhauls, and heritage revivals executed with zero operational downtime.",
+    accent: "from-amber-600 to-amber-700",
+    badge: "Structural Retrofit",
     link: "/services/renovation"
   },
   {
     icon: FileText,
-    title: "Design & Build Services",
-    desc: "End-to-end solutions — from concept and 3D modeling to final execution — all under one trusted roof.",
-    color: "from-[#2C74B3] to-[#39A0ED]",
+    title: "Integrated Design & Build",
+    desc: "Single-source architectural modeling, BIM coordination, engineering design, and turnkey general contracting.",
+    accent: "from-blue-500 to-indigo-600",
+    badge: "Turnkey EPC",
     link: "/services/design-build"
   },
   {
     icon: HardHat,
-    title: "Civil Engineering",
-    desc: "Bridges, roads, flyovers, and large-scale infrastructure delivered on time with zero compromise on safety.",
-    color: "from-[#0A2647] to-[#072A4E]",
+    title: "Civil & Heavy Engineering",
+    desc: "Highways, elevated corridors, foundation piles, and mass civic infrastructure constructed under rigorous safety standards.",
+    accent: "from-slate-900 to-blue-950",
+    badge: "Civil Works",
     link: "/services/civil"
   }
 ];
 
 export default function Services() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
-      {/* Background Glows */}
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
+      {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-0 w-80 h-80 sm:w-96 sm:h-96 bg-[#F9A826]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-0 w-72 h-72 sm:w-80 sm:h-80 bg-[#2C74B3]/10 rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="absolute top-12 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20 lg:px-8">
-        <div className="mx-auto text-center max-w-7xl">
-
-          {/* Hero Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="mb-12 sm:mb-16 lg:mb-20"
-          >
-            <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0A2647] via-[#2C74B3] to-[#144272]">
-                OUR SERVICES
-              </span>
-            </h1>
-            <p className="max-w-3xl px-4 mx-auto mt-6 text-base font-light leading-relaxed text-gray-600 sm:text-lg md:text-xl">
-              From vision to victory — we deliver excellence in every category of construction. 
-              <span className="block mt-2 text-[#F9A826] font-semibold">Your dream project deserves the best.</span>
-            </p>
-          </motion.div>
-
-          {/* Services Grid - Fully Responsive */}
-          <div className="grid max-w-6xl grid-cols-1 gap-8 mx-auto mt-16 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -12, scale: 1.03 }}
-                className="group relative bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden hover:shadow-2xl hover:border-[#F9A826]/40 transition-all duration-500"
-              >
-                <Link to={service.link} className="block h-full">
-                  <div className={`h-2 bg-gradient-to-r ${service.color}`} />
-
-                  <div className="p-6 sm:p-8 lg:p-10">
-                    <div className={`inline-flex p-4 sm:p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white shadow-lg mb-5 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-8 h-8 sm:w-10 sm:h-10" />
-                    </div>
-
-                    <h3 className="mb-3 text-xl font-bold text-left text-gray-800 sm:text-2xl lg:text-3xl">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed text-left text-gray-600 sm:text-base">
-                      {service.desc}
-                    </p>
-
-                    <div className="mt-6 flex items-center text-[#F9A826] font-bold text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                      Learn More 
-                      <ArrowRight className="w-5 h-5 ml-2 transition group-hover:translate-x-3" />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+      <div className="relative z-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-bold uppercase tracking-wider">
+            <span>Specialized Capabilities</span>
           </div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Engineering & <span className="text-amber-500">Construction Services</span>
+          </h1>
+          <p className="max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+            Comprehensive general contracting, civil engineering, and specialized development services executed to the highest quality benchmarks.
+          </p>
+        </motion.div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            viewport={{ once: true }}
-            className="px-4 mt-16 text-center lg:mt-24"
-          >
-            <h2 className="mb-6 text-3xl font-bold leading-tight text-gray-800 sm:text-4xl md:text-5xl">
-              Ready to Start Your <span className="text-[#F9A826]">Next Big Project</span>?
-            </h2>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:border-amber-400/50 hover:shadow-lg transition-all flex flex-col justify-between overflow-hidden"
+            >
+              <div className="p-6 sm:p-7">
+                <div className="flex items-center justify-between mb-5">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${service.accent} text-white shadow-sm group-hover:scale-105 transition-transform`}>
+                    <service.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">
+                    {service.badge}
+                  </span>
+                </div>
 
-            <div className="flex flex-col items-center justify-center gap-4 mt-8 sm:flex-row sm:gap-6">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-3 px-8 py-5 sm:px-12 sm:py-6 bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] text-black font-bold text-lg sm:text-xl rounded-full shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                Get a Free Quote
-                <ArrowRight className="w-6 h-6 transition sm:w-7 sm:h-7 group-hover:translate-x-2" />
-              </Link>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                  {service.title}
+                </h3>
 
-              <Link
-                to="/projects"
-                className="px-8 py-5 sm:px-12 sm:py-6 border-4 border-[#0A2647] text-[#0A2647] font-bold text-lg sm:text-xl rounded-full hover:bg-[#0A2647] hover:text-white transition-all duration-300"
-              >
-                View Our Work
-              </Link>
-            </div>
-          </motion.div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {service.desc}
+                </p>
+              </div>
+
+              <div className="px-6 py-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  to={service.link}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-500 transition-colors"
+                >
+                  <span>Explore Capabilities</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Bottom CTA Banner */}
+        <div className="mt-16 sm:mt-20 p-8 sm:p-12 text-center bg-gradient-to-br from-[#0A2647] via-[#0D315C] to-[#144272] rounded-2xl shadow-xl border border-[#2C74B3]/30">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+            Have a Technical Requirement or RFP?
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto mb-6">
+            Our engineering estimation team provides full bill-of-quantities (BOQ) review and structural consultations within 24-48 business hours.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] hover:from-[#ffb339] hover:to-[#ff8a3d] text-slate-950 shadow-md transition-all"
+            >
+              <span>Submit Project RFP</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/projects"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md transition-all"
+            >
+              <span>View Past Projects</span>
+            </Link>
+          </div>
+        </div>
+
       </div>
     </section>
   );

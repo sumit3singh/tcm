@@ -1,105 +1,89 @@
-// src/pages/services/DesignBuild.jsx → ULTRA RESPONSIVE + SAME FUNCTIONALITY
+// src/pages/services/DesignBuild.jsx → ENTERPRISE INTEGRATED DESIGN & BUILD
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FileText, Palette, Ruler, HardHat, ArrowRight } from "lucide-react";
+import { FileText, Palette, Ruler, HardHat, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import ServiceSwitcher from "../../components/ServiceSwitcher"; // ← CORRECT IMPORT
+import ServiceSwitcher from "../../components/ServiceSwitcher";
 
 export default function DesignBuild() {
-  return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+  const steps = [
+    { step: "01", icon: Palette, title: "Architectural Concept", desc: "Feasibility studies, master zoning, 3D parametric renderings, and client spatial discovery." },
+    { step: "02", icon: Ruler, title: "Engineering & BIM", desc: "Detailed structural calculations, MEP clash detection, and digital BIM level 300 coordination." },
+    { step: "03", icon: HardHat, title: "Turnkey EPC Execution", desc: "Integrated materials procurement, on-site general contracting, and continuous quality audits." },
+    { step: "04", icon: FileText, title: "Handover & Commissioning", desc: "As-built documentation, statutory completion approvals, and zero-defect building commissioning." },
+  ];
 
-      {/* Background Glow */}
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-20 left-4 xs:left-10 sm:left-20 
-          w-48 h-48 xs:w-64 xs:h-64 sm:w-80 sm:h-80 
-          bg-[#39A0ED]/10 rounded-full blur-3xl" 
-        />
+        <div className="absolute top-12 left-0 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 px-4 pb-20 text-center pt-28 xs:px-5 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-
-          {/* Hero Title */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 40 }} 
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
-            <h1 className="text-4xl font-black leading-tight xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39A0ED] to-[#2C74B3]">
-                DESIGN & BUILD
-              </span>
-              <br />
-              <span className="text-3xl text-gray-800 xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                SERVICES
-              </span>
-            </h1>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <p className="max-w-4xl px-1 mx-auto mt-4 text-sm font-light leading-relaxed text-gray-600 sm:mt-6 xs:text-base sm:text-lg md:text-xl lg:text-2xl">
-            One team. One contract. Zero stress — from concept sketches to final handover, 
-            we handle everything.
-          </p>
-
-          {/* 4-Step Grid */}
-          <div className="grid grid-cols-2 gap-6 px-1 xs:gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-4 mt-14 sm:mt-20">
-            {[
-              { icon: Palette, label: "Concept Design" },
-              { icon: FileText, label: "Detailed Drawings" },
-              { icon: Ruler, label: "BOQ & Estimation" },
-              { icon: HardHat, label: "Execution & Handover" },
-            ].map((step, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }}
-                className="p-5 text-center transition-all duration-300 bg-white border border-gray-200 shadow-xl xs:p-6 sm:p-8 rounded-3xl hover:shadow-2xl"
-              >
-                <step.icon className="
-                  mx-auto mb-3 xs:mb-4 
-                  text-[#39A0ED] 
-                  w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14
-                " />
-                <p className="text-base font-bold text-gray-800 xs:text-lg sm:text-xl">
-                  {step.label}
-                </p>
-                <div className="mt-2 text-4xl font-black text-gray-300 xs:text-5xl">
-                  {i + 1}
-                </div>
-              </motion.div>
-            ))}
+      <div className="relative z-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Hero Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-xs font-bold uppercase tracking-wider">
+            <span>Specialized Capability</span>
           </div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Integrated <span className="text-blue-600">Design & Build</span>
+          </h1>
+          <p className="max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+            A single point of contractual responsibility. Combining creative architectural vision, mechanical engineering, and on-site construction to shorten delivery schedules and lower overall lifecycle cost.
+          </p>
+        </motion.div>
 
-          {/* CTA Button */}
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            whileInView={{ opacity: 1 }}
-            className="mt-16 sm:mt-20 lg:mt-24"
-          >
-            <Link
-              to="/contact"
-              className="
-                inline-flex items-center gap-3 sm:gap-4 
-                px-8 py-4 xs:px-10 xs:py-5 sm:px-14 sm:py-7
-                bg-gradient-to-r from-[#39A0ED] to-[#2C74B3] 
-                text-white font-bold rounded-full shadow-2xl
-                text-base xs:text-lg sm:text-xl md:text-2xl
-                hover:scale-105 transition-all
-              "
+        {/* 4-Step Process Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-6xl mx-auto">
+          {steps.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="p-6 bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:border-blue-400/40 hover:shadow-md transition-all flex flex-col justify-between"
             >
-              Start Design & Build
-              <ArrowRight className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8" />
-            </Link>
-          </motion.div>
-            {/* Service Switcher - Auto detects current page */}
-          <ServiceSwitcher />
-
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-black text-slate-300 tracking-wider">{item.step}</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* CTA */}
+        <div className="p-8 sm:p-10 text-center bg-gradient-to-br from-[#0A2647] via-[#0D315C] to-[#144272] rounded-2xl shadow-xl border border-[#2C74B3]/30 mb-16">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2">
+            Accelerate Your Project Timeline
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-200 max-w-md mx-auto mb-6">
+            Design-build methodology reduces delivery timelines by up to 33% compared to conventional design-bid-build workflows.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] hover:from-[#ffb339] hover:to-[#ff8a3d] text-slate-950 shadow-md transition-all font-bold"
+          >
+            <span>Initiate Turnkey Proposal</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <ServiceSwitcher />
       </div>
     </section>
   );

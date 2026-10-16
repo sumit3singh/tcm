@@ -1,8 +1,8 @@
-// src/pages/Projects.jsx → 100% ULTRA RESPONSIVE + SAME DESIGN & FUNCTIONALITY
+// src/pages/Projects.jsx → ENTERPRISE ARCHITECTURAL PORTFOLIO
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin, Building2, Home, Factory, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Building2, Home, Factory, ArrowRight, Layers } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const allProjects = [
@@ -10,62 +10,70 @@ const allProjects = [
     id: 1,
     name: "Skyline Corporate Tower",
     type: "commercial",
-    location: "Gurugram",
+    categoryLabel: "Commercial Tower",
+    location: "Golf Course Extn, Gurugram",
     img: "https://images.unsplash.com/photo-1486401897504-2b8123ec0d8e?w=800&q=80&fit=crop"
   },
   {
     id: 2,
-    name: "The Palm Residency",
+    name: "The Palm Luxury Residency",
     type: "residential",
-    location: "Pataudi",
+    categoryLabel: "Luxury Residential",
+    location: "Pataudi Road, Gurugram",
     img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80&fit=crop"
   },
   {
     id: 3,
-    name: "Metro Industrial Park",
+    name: "Metro Heavy Logistics Hub",
     type: "industrial",
-    location: "Manesar",
+    categoryLabel: "Industrial Facility",
+    location: "IMT Manesar, Haryana",
     img: "https://images.unsplash.com/photo-1581092580490-4d66393df8c3?w=800&q=80&fit=crop"
   },
   {
     id: 4,
-    name: "Heritage Villa Complex",
+    name: "Grand Heritage Estates",
     type: "residential",
-    location: "Gurugram",
+    categoryLabel: "Gated Community",
+    location: "Sector 65, Gurugram",
     img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop"
   },
   {
     id: 5,
-    name: "TechOne Business Center",
+    name: "TechOne IT Innovation Center",
     type: "commercial",
-    location: "Cyber City",
+    categoryLabel: "Commercial IT Park",
+    location: "Cyber City, Gurugram",
     img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop"
   },
   {
     id: 6,
-    name: "Green Valley Warehousing",
+    name: "Green Valley Cold Storage & Warehousing",
     type: "industrial",
-    location: "Bhiwadi",
+    categoryLabel: "Automated Logistics",
+    location: "Bhiwadi Industrial Zone",
     img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&fit=crop"
   },
   {
     id: 7,
-    name: "Elite Corporate Plaza",
+    name: "Elite Corporate Commercial Plaza",
     type: "commercial",
-    location: "Sector 44",
+    categoryLabel: "Retail & Offices",
+    location: "Sector 44, Gurugram",
     img: "https://images.unsplash.com/photo-1543782249-3f02e6b9f8c3?w=800&q=80&fit=crop"
   },
   {
     id: 8,
-    name: "Sunrise Luxury Homes",
+    name: "Sunrise Luxury Villas",
     type: "residential",
-    location: "Sohna Road",
+    categoryLabel: "Residential Villas",
+    location: "Sohna Road, Gurugram",
     img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&fit=crop"
   },
 ];
 
 const categories = [
-  { id: "all", label: "All Projects", icon: Building2 },
+  { id: "all", label: "All Works", icon: Layers },
   { id: "commercial", label: "Commercial", icon: Building2 },
   { id: "residential", label: "Residential", icon: Home },
   { id: "industrial", label: "Industrial", icon: Factory },
@@ -80,153 +88,129 @@ export default function Projects() {
       : allProjects.filter((p) => p.type === filter);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
-
-      {/* Glows */}
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
+      {/* Subtle Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="
-          absolute top-10 left-4 
-          w-56 h-56 xs:w-72 xs:h-72 sm:w-96 sm:h-96 
-          bg-[#F9A826]/10 rounded-full blur-3xl
-        " />
-        <div className="
-          absolute bottom-16 right-4 
-          w-48 h-48 xs:w-64 xs:h-64 sm:w-80 sm:h-80 
-          bg-[#2C74B3]/10 rounded-full blur-3xl
-        " />
+        <div className="absolute top-12 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 px-4 pb-20 pt-28 xs:px-5 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-
-          {/* Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-center mb-14 sm:mb-16"
-          >
-            <h1 className="text-4xl font-black tracking-tight  xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A2647] via-[#2C74B3] to-[#144272]">
-                OUR PROJECTS
-              </span>
-            </h1>
-
-            <p className="max-w-3xl px-2 mx-auto mt-4 text-sm font-light leading-relaxed text-gray-600  sm:mt-6 xs:text-base sm:text-lg md:text-xl">
-              From towering corporate landmarks to dream homes and industrial powerhouses — 
-              <span className="text-[#F9A826] font-semibold"> every project is a masterpiece.</span>
-            </p>
-          </motion.div>
-
-          {/* Category Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 xs:gap-5 sm:gap-6 mb-14 sm:mb-16">
-            {categories.map((cat) => (
-              <motion.button
-                key={cat.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setFilter(cat.id)}
-                className={`
-                  flex items-center gap-2 xs:gap-3 sm:gap-4
-                  px-6 py-3 xs:px-7 xs:py-4 sm:px-8 sm:py-4
-                  rounded-full font-semibold
-                  text-sm xs:text-base sm:text-lg
-                  transition-all duration-300
-                  ${
-                    filter === cat.id
-                      ? "bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] text-black shadow-xl"
-                      : "bg-white border-2 border-gray-300 text-gray-700 hover:border-[#F9A826]"
-                  }
-                `}
-              >
-                <cat.icon className="w-5 h-5 xs:w-6 xs:h-6" />
-                {cat.label}
-              </motion.button>
-            ))}
+      <div className="relative z-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-12"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-bold uppercase tracking-wider">
+            <span>Portfolio of Excellence</span>
           </div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Featured <span className="text-amber-500">Infrastructure Projects</span>
+          </h1>
+          <p className="max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+            Showcasing over two decades of engineering milestones, from landmark corporate towers to large-scale industrial complexes.
+          </p>
+        </motion.div>
 
-          {/* Projects Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 gap-6  xs:gap-8 sm:gap-10 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          >
-            {filteredProjects.map((project, i) => (
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
+          {categories.map((cat) => {
+            const isSelected = filter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setFilter(cat.id)}
+                className={`flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 ${
+                  isSelected
+                    ? "bg-[#0A2647] text-[#F9A826] shadow-md border border-[#0A2647]"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
+                }`}
+              >
+                <cat.icon className="w-4 h-4" />
+                <span>{cat.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Project Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="
-                  group relative overflow-hidden
-                  bg-white rounded-3xl shadow-xl border border-gray-200
-                  hover:shadow-2xl hover:border-[#F9A826]/30
-                  transition-all duration-500 cursor-pointer
-                "
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:border-amber-400/40 hover:shadow-lg transition-all flex flex-col justify-between"
               >
-                {/* Project Image */}
-                <div className="relative h-56 xs:h-64 sm:h-72">
+                {/* Image Container */}
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-100">
                   <img
                     src={project.img}
                     alt={project.name}
-                    className="object-cover w-full h-full transition duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-slate-950/80 text-amber-400 backdrop-blur-md">
+                      {project.categoryLabel}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-end transition-opacity duration-500 opacity-0  bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:opacity-100">
-                  <div className="p-4 text-white xs:p-5 sm:p-6">
-                    <h3 className="mb-1 text-xl font-bold xs:mb-2 xs:text-2xl">{project.name}</h3>
-                    <div className="flex items-center gap-2 text-xs xs:text-sm">
-                      <MapPin className="w-3 h-3 xs:w-4 xs:h-4" />
-                      {project.location}
+                {/* Details */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+                      {project.name}
+                    </h3>
+                    <div className="flex items-center gap-1.5 mt-2 text-xs text-slate-500 font-medium">
+                      <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="truncate">{project.location}</span>
                     </div>
                   </div>
-                </div>
 
-                {/* Bottom Content */}
-                <div className="p-4 xs:p-5 sm:p-6">
-                  <h3 className="text-lg font-bold text-gray-800 xs:text-xl">{project.name}</h3>
-                  <div className="flex items-center gap-2 text-xs text-gray-600 xs:text-sm">
-                    <MapPin className="w-3 h-3 xs:w-4 xs:h-4 text-[#F9A826]" />
-                    {project.location}
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-700">
+                    <span className="text-[11px] text-slate-500">Status: Completed</span>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-500 transition-colors"
+                    >
+                      Inquire <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
-                  <p className="mt-2 xs:mt-3 text-xs xs:text-sm uppercase tracking-wider text-[#F9A826] font-semibold">
-                    {project.type}
-                  </p>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-16 text-center sm:mt-20 lg:mt-24"
+        {/* Bottom Consultation Banner */}
+        <div className="mt-16 sm:mt-20 p-8 sm:p-12 text-center bg-gradient-to-br from-[#0A2647] via-[#0D315C] to-[#144272] rounded-2xl shadow-xl border border-[#2C74B3]/30">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+            Commission Your Project with TCM Construction
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto mb-6">
+            From design engineering through construction delivery, our team brings certainty to cost, schedule, and quality.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] hover:from-[#ffb339] hover:to-[#ff8a3d] text-slate-950 shadow-md transition-all"
           >
-            <h2 className="mb-6 text-2xl font-bold text-gray-800  sm:mb-8 xs:text-3xl sm:text-4xl md:text-5xl">
-              Want to See Your Name Here?
-            </h2>
-            <Link
-              to="/contact"
-              className="
-                group inline-flex items-center gap-3 sm:gap-4 
-                px-8 py-4 xs:px-10 xs:py-5 sm:px-12 sm:py-6
-                bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] 
-                text-black font-bold rounded-full shadow-2xl
-                text-base xs:text-lg sm:text-xl
-                hover:scale-105 transition-all
-              "
-            >
-              Start Your Project Today
-              <ArrowRight className="w-6 h-6 transition xs:w-7 xs:h-7 group-hover:translate-x-2" />
-            </Link>
-          </motion.div>
-
+            <span>Initiate Project Consultation</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
+
       </div>
     </section>
   );

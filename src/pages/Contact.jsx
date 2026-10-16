@@ -1,14 +1,15 @@
-// src/pages/Contact.jsx → ULTRA RESPONSIVE + MOBILE NUMBER FIELD + PREMIUM CLEAN
+// src/pages/Contact.jsx → ENTERPRISE CONTACT & INQUIRY PAGE
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, ShieldCheck } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
     email: "",
+    projectType: "Commercial",
     message: "",
   });
 
@@ -23,285 +24,210 @@ export default function Contact() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", mobile: "", email: "", message: "" });
-    }, 3000);
+      setFormData({ name: "", mobile: "", email: "", projectType: "Commercial", message: "" });
+    }, 4000);
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
-
-      {/* Decorative Background Glows */}
+    <section className="relative min-h-screen overflow-hidden bg-slate-50">
+      {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="
-          absolute top-0 left-0 
-          w-56 h-56 xs:w-72 xs:h-72 sm:w-96 sm:h-96 
-          bg-[#F9A826]/10 rounded-full blur-3xl
-        " />
-        <div className="
-          absolute bottom-20 right-0 
-          w-48 h-48 xs:w-64 xs:h-64 sm:w-80 sm:h-80 
-          bg-[#2C74B3]/10 rounded-full blur-3xl
-        " />
-        <div className="
-          absolute top-1/2 left-1/2 
-          -translate-x-1/2 -translate-y-1/2 
-          w-full h-64 sm:h-80 
-          bg-gradient-to-r from-[#F9A826]/5 via-transparent to-[#2C74B3]/5 
-          blur-3xl
-        " />
+        <div className="absolute top-12 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 px-4 pt-24 pb-16 xs:px-5 sm:px-6 sm:pt-32 sm:pb-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:px-8 max-w-7xl mx-auto">
 
-          {/* Main Heading */}
+
+
+        {/* 2-Column Responsive Grid */}
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 lg:grid-cols-12 max-w-6xl mx-auto items-start">
+
+          {/* Form Column */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="mb-12 text-center sm:mb-16"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs"
           >
-            <h1 className="text-4xl font-black tracking-tight  xs:text-5xl sm:text-6xl md:text-7xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A2647] to-[#2C74B3]">
-                CONTACT US TODAY
-              </span>
-            </h1>
-
-            <p className="max-w-2xl px-2 mx-auto mt-4 text-sm font-light text-gray-600  xs:text-base sm:text-lg md:text-xl">
-              Let’s turn your vision into reality. Our team is ready to help you build something extraordinary.
-            </p>
-          </motion.div>
-
-          {/* 2-Column Responsive Grid */}
-          <div className="grid max-w-6xl grid-cols-1 gap-10 mx-auto  lg:gap-12 lg:grid-cols-2">
-
-            {/* Form Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="p-6 border border-gray-200 shadow-2xl  bg-white/90 backdrop-blur-xl rounded-3xl xs:p-7 sm:p-8 lg:p-10"
-            >
-              <h2 className="flex items-center gap-3 mb-6 text-xl font-bold text-gray-800  sm:mb-8 xs:text-2xl sm:text-3xl">
-                <Send className="text-[#F9A826] w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8" />
-                Send Us a Message
+            <div className="flex items-center gap-2 mb-6">
+              <Send className="w-5 h-5 text-amber-500" />
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900">
+                Project Inquiry & RFP Submission
               </h2>
+            </div>
 
-              {/* After Submit Success Message */}
-              {submitted ? (
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="py-12 text-center"
-                >
-                  <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-500 sm:w-20 sm:h-20" />
-                  <p className="text-xl font-bold text-gray-800 xs:text-2xl">Thank You!</p>
-                  <p className="mt-2 text-sm text-gray-600 xs:text-base sm:text-lg">
-                    We’ll get back to you within 24 hours.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+            {submitted ? (
+              <div className="py-12 text-center">
+                <CheckCircle2 className="w-12 h-12 mx-auto mb-3 text-emerald-600" />
+                <h3 className="text-lg font-bold text-slate-900">Inquiry Received</h3>
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mt-1">
+                  Thank you. Our technical estimation division will review your project brief and connect with you within 24 business hours.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. Rajesh Kumar"
+                      required
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-amber-500 text-slate-800"
+                    />
+                  </div>
 
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Full Name"
-                    required
-                    className="
-                      w-full px-5 py-3 xs:py-4 
-                      border border-gray-300 rounded-xl 
-                      focus:border-[#F9A826] focus:ring-4 focus:ring-[#F9A826]/20 
-                      placeholder-gray-500 text-gray-800
-                      text-sm xs:text-base
-                    "
-                  />
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
+                      Mobile Number *
+                    </label>
+                    <input
+                      type="tel"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      placeholder="+91 98765 43210"
+                      required
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-amber-500 text-slate-800"
+                    />
+                  </div>
+                </div>
 
-                  <input
-                    type="tel"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    placeholder="Mobile Number"
-                    required
-                    pattern="[0-9+\-\s]{10,15}"
-                    className="
-                      w-full px-5 py-3 xs:py-4
-                      border border-gray-300 rounded-xl 
-                      focus:border-[#F9A826] focus:ring-4 focus:ring-[#F9A826]/20 
-                      placeholder-gray-500 text-gray-800
-                      text-sm xs:text-base
-                    "
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
+                      Corporate / Personal Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="name@company.com"
+                      required
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-amber-500 text-slate-800"
+                    />
+                  </div>
 
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    required
-                    className="
-                      w-full px-5 py-3 xs:py-4 
-                      border border-gray-300 rounded-xl 
-                      focus:border-[#F9A826] focus:ring-4 focus:ring-[#F9A826]/20 
-                      placeholder-gray-500 text-gray-800
-                      text-sm xs:text-base
-                    "
-                  />
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
+                      Project Classification
+                    </label>
+                    <select
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-amber-500 text-slate-800 bg-white"
+                    >
+                      <option value="Commercial">Commercial Tower / Complex</option>
+                      <option value="Residential">Residential Villa / High-Rise</option>
+                      <option value="Industrial">Industrial Plant / Warehouse</option>
+                      <option value="Civil">Civil / Infrastructure Work</option>
+                      <option value="Renovation">Renovation & Structural Retrofit</option>
+                    </select>
+                  </div>
+                </div>
 
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
+                    Project Brief & Location Details *
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows="5"
-                    placeholder="Tell us about your project..."
+                    rows="4"
+                    placeholder="Describe estimated plot size, location, planned built-up area, and target completion schedule..."
                     required
-                    className="
-                      w-full px-5 py-3 xs:py-4 
-                      border border-gray-300 rounded-xl resize-none
-                      focus:border-[#F9A826] focus:ring-4 focus:ring-[#F9A826]/20 
-                      placeholder-gray-500 text-gray-800
-                      text-sm xs:text-base
-                    "
+                    className="w-full px-3.5 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-amber-500 text-slate-800 resize-none"
                   />
+                </div>
 
-                  <button
-                    type="submit"
-                    className="
-                      w-full py-3 xs:py-4 sm:py-5 
-                      bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] 
-                      rounded-xl font-bold text-black
-                      text-sm xs:text-base sm:text-lg
-                      hover:scale-105 hover:shadow-2xl transition
-                      flex items-center justify-center gap-2
-                    "
-                  >
-                    Send Message
-                    <Send className="w-5 h-5 xs:w-6 xs:h-6" />
-                  </button>
-                </form>
-              )}
-            </motion.div>
+                <button
+                  type="submit"
+                  className="w-full py-3 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-xl bg-gradient-to-r from-[#F9A826] to-[#FF7A2D] hover:from-[#ffb339] hover:to-[#ff8a3d] text-slate-900 transition-all shadow-md flex items-center justify-center gap-2"
+                >
+                  <span>Submit Inquiry</span>
+                  <Send className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            )}
+          </motion.div>
 
-            {/* Right Side - Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-8 sm:space-y-10"
+          {/* Contact Details Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-4"
+          >
+            {/* Direct Office */}
+            <div className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+              <div className="flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-600 shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Corporate Headquarters</h3>
+                  <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Killa No. 144, Bhora Kalan, Pataudi Road,<br />
+                    Gurugram, Haryana 122413, India
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Direct Phone */}
+            <a
+              href="tel:+918685882050"
+              className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:border-amber-400/50 hover:shadow-md transition-all flex items-start gap-3.5 group block"
             >
-              {/* Intro */}
+              <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 shrink-0 group-hover:scale-105 transition-transform">
+                <Phone className="w-5 h-5" />
+              </div>
               <div>
-                <h2 className="mb-4 text-2xl font-bold text-gray-800 xs:text-3xl sm:text-4xl sm:mb-6">
-                  We’re Here to Help
-                </h2>
-                <p className="text-sm leading-relaxed text-gray-600 xs:text-base sm:text-lg">
-                  Whether you're planning a residential villa, commercial complex, 
-                  or industrial facility — our team will bring your vision to life with precision.
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Direct Project Desk</h3>
+                <p className="text-base sm:text-lg font-bold text-amber-600 mt-0.5">
+                  +91 86858 82050
+                </p>
+                <p className="text-[11px] text-slate-400">Monday to Saturday • 9:00 AM – 6:30 PM IST</p>
+              </div>
+            </a>
+
+            {/* Direct Email */}
+            <a
+              href="mailto:info@tcmconstructionspvtltd.com"
+              className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:border-amber-400/50 hover:shadow-md transition-all flex items-start gap-3.5 group block"
+            >
+              <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-600 shrink-0 group-hover:scale-105 transition-transform">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Commercial Correspondence</h3>
+                <p className="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 break-all">
+                  info@tcmconstructionspvtltd.com
                 </p>
               </div>
+            </a>
 
-              {/* Address */}
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="
-                  flex items-start gap-3 xs:gap-4 sm:gap-5 
-                  p-5 xs:p-6 
-                  bg-white/70 backdrop-blur-sm rounded-2xl 
-                  border border-gray-200 hover:border-[#F9A826]/50 
-                  transition-all group
-                "
-              >
-                <div className="
-                  p-3 xs:p-4 bg-gradient-to-br from-[#F9A826] to-[#FF7A2D] 
-                  rounded-xl text-white group-hover:scale-110 transition
-                ">
-                  <MapPin className="w-6 h-6 xs:w-7 xs:h-7" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 xs:text-xl">Visit Our Office</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-gray-600 xs:text-base">
-                    Killa No. 144, Bhora Kalan,<br />
-                    Pataudi, Gurugram,<br />
-                    Haryana 122413, India
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Phone */}
-              <motion.a
-                href="tel:+918685882050"
-                whileHover={{ x: 10 }}
-                className="
-                  flex items-start gap-3 xs:gap-4 sm:gap-5
-                  p-5 xs:p-6 
-                  bg-white/70 backdrop-blur-sm rounded-2xl 
-                  border border-gray-200 hover:border-[#F9A826]/50 
-                  transition-all group
-                  block
-                "
-              >
-                <div className="
-                  p-3 xs:p-4 bg-gradient-to-br from-[#F9A826] to-[#FF7A2D]
-                  rounded-xl text-white group-hover:scale-110 transition
-                ">
-                  <Phone className="w-6 h-6 xs:w-7 xs:h-7" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 xs:text-xl">Call Us</h3>
-                  <p className="text-xl xs:text-2xl sm:text-3xl font-bold text-[#0A2647] mt-1">
-                    +91 86858 82050
-                  </p>
-                </div>
-              </motion.a>
-
-              {/* Email */}
-              <motion.a
-                href="mailto:info@tcmconstructionspvtltd.com"
-                whileHover={{ x: 10 }}
-                className="
-                  flex items-start gap-3 xs:gap-4 sm:gap-5 
-                  p-5 xs:p-6 
-                  bg-white/70 backdrop-blur-sm rounded-2xl 
-                  border border-gray-200 hover:border-[#F9A826]/50 
-                  transition-all group
-                  block
-                "
-              >
-                <div className="
-                  p-3 xs:p-4 bg-gradient-to-br from-[#F9A826] to-[#FF7A2D]
-                  rounded-xl text-white group-hover:scale-110 transition
-                ">
-                  <Mail className="w-6 h-6 xs:w-7 xs:h-7" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800 xs:text-xl">Email Us</h3>
-                  <p className="text-sm xs:text-base sm:text-lg text-[#0A2647] mt-1 underline decoration-dotted break-all">
-                    info@tcmconstructionspvtltd.com
-                  </p>
-                </div>
-              </motion.a>
-
-              {/* Office Hours */}
-              <div className="
-                mt-6 xs:mt-8 
-                p-5 xs:p-6 sm:p-7 
-                bg-gradient-to-r from-[#F9A826]/10 to-[#2C74B3]/10 
-                rounded-3xl border border-[#F9A826]/20
-              ">
-                <p className="text-sm font-medium text-gray-800 xs:text-base sm:text-lg">
-                  <strong className="text-[#F9A826]">Office Hours:</strong> Monday – Saturday, 9:00 AM – 6:00 PM
-                </p>
+            {/* Operating Credentials */}
+            <div className="p-5 bg-gradient-to-br from-[#0A2647] via-[#0D315C] to-[#144272] text-white rounded-2xl border border-[#2C74B3]/30 shadow-md">
+              <div className="flex items-center gap-2 mb-2">
+                <ShieldCheck className="w-4 h-4 text-[#F9A826]" />
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#F9A826]">Statutory Certifications</h4>
               </div>
+              <p className="text-xs text-slate-200 leading-relaxed">
+                Registered Private Limited Enterprise with full GST, PF, ESI compliance and structural engineering licensing.
+              </p>
+            </div>
+          </motion.div>
 
-            </motion.div>
-
-          </div>
         </div>
       </div>
     </section>
